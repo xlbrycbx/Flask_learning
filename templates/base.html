@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}父模板的title{% endblock %}</title>
+    <style>
+        header {
+            width: 400px;
+            height: 30px;
+            background-color: antiquewhite;
+        }
+        header li {
+            float: left;
+            {#background: antiquewhit#}
+            list-style: none;
+            margin: 0 20px;
+            line-height: 30px;
+
+        }
+
+        .main {
+            margin-top: 20px;
+            height: 1000px;
+        }
+        {% block myCSS %}
+        {% endblock %}
+    </style>
+</head>
+<body>
+{% import 'macro/macro.html' as m %}
+<header>
+    <ul>
+        <li>首页</li>
+        <li>秒杀</li>
+        <li>特惠</li>
+        <li>优品</li>
+    </ul>
+
+</header>
+{% block main %}
+<div class="main">我是中间部分</div>
+{% endblock %}
+<footer>我是底部</footer>
+</body>
+</html>

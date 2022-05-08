@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block myCSS %}
+{#    <style></style>#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+{% endblock %}
+
+{% block title %}
+    首页
+{% endblock %}
+
+{% block main %}
+    <div>
+        我是大魔王
+    </div>
+
+    {% import 'macro/macro.html' as m %}
+    {{ m.form('/register') }}
+{% endblock %}

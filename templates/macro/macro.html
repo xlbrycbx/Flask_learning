@@ -1,0 +1,10 @@
+{% macro form(action,value='登录',method='post') %}
+    <form action="{{ action }}" method="{{ method }}">
+        <input type="text" placeholder="输入用户名" name="username">
+        <br>
+        <input type="password" placeholder="输入密码" name="password">
+        <input type="submit" value="{{ value }}">
+
+
+    </form>
+{% endmacro %}
