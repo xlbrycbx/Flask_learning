@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    用户中心
+{% endblock %}
+
+{% block middle %}
+    <h1>用户展示</h1>
+    <span>当前用户人数：{{ users|length }}</span>
+    <table>
+        {% for user in users %}
+
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.phone }}</td>
+                <td><a href="javascript:;" onclick="">修改</a></td>
+                <td><a href="javascript:;" onclick="">删除</a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block mycss %}
+    <style>
+    table {
+        border: 1px solid #666;
+        {#border-spacing: 0;#}
+        width: 60%;
+        border-collapse: collapse;
+
+    }
+
+    td {
+        border: 1px solid #666;
+    }
+    </style>
+{% endblock %}

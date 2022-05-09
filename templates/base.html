@@ -2,44 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}父模板的title{% endblock %}</title>
+    <title>{% block title %}用户中心{% endblock %}</title>
     <style>
-        header {
-            width: 400px;
+        .header {
+            background-color: burlywood;
+            width: 500px;
             height: 30px;
-            background-color: antiquewhite;
         }
-        header li {
+        .header li {
             float: left;
-            {#background: antiquewhit#}
-            list-style: none;
             margin: 0 20px;
+            list-style: none;
             line-height: 30px;
 
         }
 
-        .main {
-            margin-top: 20px;
-            height: 1000px;
+        .header li a {
+            text-decoration: none;
         }
-        {% block myCSS %}
-        {% endblock %}
     </style>
+    {% block mycss %}
+    {% endblock %}
 </head>
 <body>
-{% import 'macro/macro.html' as m %}
-<header>
+<div class="header">
     <ul>
-        <li>首页</li>
-        <li>秒杀</li>
-        <li>特惠</li>
-        <li>优品</li>
-    </ul>
+        <li><a href="">首页</a></li>
+        <li><a href="">秒杀</a></li>
+        <li><a href="">超市</a></li>
+        <li><a href="">会员</a></li>
+        <li><a href="">图书</a></li>
 
-</header>
-{% block main %}
-<div class="main">我是中间部分</div>
+    </ul>
+</div>
+<div class="middle">
+    {% block middle %}
+    {% endblock %}
+</div>
+<div class="footer"></div>
+
+
+{% block myjs %}
 {% endblock %}
-<footer>我是底部</footer>
 </body>
 </html>
