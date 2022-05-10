@@ -1,13 +1,14 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, url_for
 
 from apps.user.model import User
 
 user_bp = Blueprint('user',__name__)
 
-users = []
-
+users=[]
 @user_bp.route('/')
 def user_center():
+    print(url_for('user.user_register'))
+
     return render_template('user/show.html',users=users)
 
 @user_bp.route('/register', methods=['GET','POST'])
@@ -36,7 +37,8 @@ def del_user():
     for user in users:
         if username == user.username:
             users.remove(user)
-            return render_template('user/show.html',users=users)
+            # return render_template('user/show.html',users=users)
+            return redirect('/')
     else:
         return '删除失败'
 
