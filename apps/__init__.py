@@ -1,4 +1,3 @@
-# from flask import Flask
 from flask import Flask
 
 import settings

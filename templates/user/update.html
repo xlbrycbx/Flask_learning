@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    用户更新
+{% endblock %}
+
+{% block middle %}
+
+    <form action="{{ url_for('user.user_update') }}" method="post">
+                        <p><input type="hidden" name="realname" value="{{ user.username }}"></p>
+
+        <p><input type="text" name="username" value="{{ user.username }}"></p>
+        <p><input type="number" name="password" value="{{ user.password }}"></p>
+
+        <p><input type="number" name="phone" value="{{ user.phone }}"></p>
+
+        <p><input type="submit" value="用户更新"></p>
+    </form>
+{% endblock %}
+
+{% block mycss %}
+    <style>
+        input {
+            outline: none;
+        }
+
+        #msg {
+            color: red;
+        }
+    </style>
+{% endblock %}

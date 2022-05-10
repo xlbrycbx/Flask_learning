@@ -6,6 +6,7 @@
 {% block middle %}
     <p id="msg">{{ msg }}</p>
     <form action="{{ url_for('user.user_register') }}" method="post">
+
         <p><input type="text" name="username" placeholder="用户名"></p>
         <p><input type="password" name="password" placeholder="密码"></p>
         <p><input type="password" name="repassword" placeholder="请重新输入密码"></p>

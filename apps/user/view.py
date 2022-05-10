@@ -14,6 +14,7 @@ def user_center():
 @user_bp.route('/register', methods=['GET','POST'])
 def user_register():
     if request.method == 'POST':
+        realname = request.form.get('realname')
         username = request.form.get('username')
         password = request.form.get('password')
         repassword = request.form.get('repassword')
@@ -41,6 +42,30 @@ def del_user():
             return redirect('/')
     else:
         return '删除失败'
+
+@user_bp.route('/update', methods=['GET','POST'])
+def user_update():
+    if request.method == 'POST':
+        realname = request.form.get('realname')
+        username = request.form.get('username')
+        password = request.form.get('password')
+        phone = request.form.get('phone')
+
+
+        for user in users:
+            if user.username==realname:
+                user.username = username
+                user.password = password
+                user.phone = phone
+                return render_template('user/show.html', users=users)
+
+
+    else:
+        username = request.args.get('username')
+        for user in users:
+            if user.username == username:
+                return render_template('user/update.html', user=user)
+
 
 
 @user_bp.route('/login', methods=['GET','POST'])
