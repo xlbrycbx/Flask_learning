@@ -27,13 +27,18 @@ def user_register():
             users.append(user)
 
             return redirect('/')
-
-
-
-
-
     else:
         return render_template('user/register.html')
+
+@user_bp.route('/del')
+def del_user():
+    username = request.args.get('username')
+    for user in users:
+        if username == user.username:
+            users.remove(user)
+            return render_template('user/show.html',users=users)
+    else:
+        return '删除失败'
 
 
 @user_bp.route('/login', methods=['GET','POST'])

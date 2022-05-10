@@ -15,12 +15,29 @@
                 <td>{{ user.password }}</td>
                 <td>{{ user.phone }}</td>
                 <td><a href="javascript:;" onclick="">修改</a></td>
-                <td><a href="javascript:;" onclick="">删除</a></td>
+                <td><a href="javascript:;" onclick="del('{{ user.username }}')">删除</a></td>
 
             </tr>
         {% endfor %}
     </table>
 {% endblock %}
+
+{% block myjs %}
+    <script>
+        function del(username){
+
+        location.href = '/del?username='+username
+
+    }
+    </script>
+
+
+
+{% endblock %}
+
+
+
+
 
 {% block mycss %}
     <style>
